@@ -48,177 +48,177 @@
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         @using (Html.BeginForm("Update", "Employee", new { id = Model.User.Id }))
         {
-            @Html.HiddenFor(model => model.BankInfo.UserId)
+        @Html.HiddenFor(model => model.BankInfo.UserId)
 
-            <div class="d-flex flex-row-reverse">
-                <input type="submit" style="height: 44px; margin: 10px; margin-left: 0 !important" class="btn btn-primary p-2" name="Save" value="Save" />
-                <input type="button" style="margin: 10px;" id="edit" class="btn btn-outline-info p-2 edit" value="Edit" name="Edit" />
-            </div>
+        <div class="d-flex flex-row-reverse">
+            <input type="submit" style="height: 44px; margin: 10px; margin-left: 0 !important" class="btn btn-primary p-2" name="Save" value="Save" />
+            <input type="button" style="margin: 10px;" id="edit" class="btn btn-outline-info p-2 edit" value="Edit" name="Edit" />
+        </div>
 
-            <div class="container">
+        <div class="container">
 
-                <div class="form-row">
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.User.FirstName, new { @class = "label" })
+            <div class="form-row">
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.User.FirstName, new { @class = "label" })
 
-                        @Html.TextBoxFor(model => Model.User.FirstName, new { @class = "form-control formm" })
-                        @Html.ValidationMessageFor(m => m.User.FirstName, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.User.LastName)
+                    @Html.TextBoxFor(model => Model.User.FirstName, new { @class = "form-control formm" })
+                    @Html.ValidationMessageFor(m => m.User.FirstName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.User.LastName)
 
-                        @Html.TextBoxFor(model => Model.User.LastName, new { @class = "form-control formm" })
-                        @Html.ValidationMessageFor(m => m.User.LastName, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(m => m.User.Gender)
+                    @Html.TextBoxFor(model => Model.User.LastName, new { @class = "form-control formm" })
+                    @Html.ValidationMessageFor(m => m.User.LastName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(m => m.User.Gender)
 
-                        @Html.DropDownList("User.Gender", new List<SelectListItem>
+                    @Html.DropDownList("User.Gender", new List<SelectListItem>
                         {
                             new SelectListItem {Text = "Male", Value = "Male"},
                             new SelectListItem {Text = "Female", Value = "Female"}
                         }, "Select Gender", new { @class = "form-control dropdown formm" })
-                        @Html.ValidationMessageFor(m => m.User.Gender, "", new { @class = "text-danger" })
-                    </div>
+                    @Html.ValidationMessageFor(m => m.User.Gender, "", new { @class = "text-danger" })
                 </div>
+            </div>
 
-                <div class="form-row">
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-row">
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
-                        @Html.LabelFor(model => Model.User.DateofBirth, "Date of Birth")
-                        @Html.TextBoxFor(x => x.User.DateofBirth, new { @class = "form-control formm date", @Value = Model.User.DateofBirth.Value.ToShortDateString() })
-                        @Html.ValidationMessageFor(m => m.User.DateofBirth, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.User.DateofJoining, "Date of Joining")
-
-                        @Html.TextBoxFor(x => x.User.DateofJoining, new { @class = "form-control formm1 date", @Value = Model.User.DateofJoining.Value.ToShortDateString() })
-                        @Html.ValidationMessageFor(m => m.User.DateofJoining, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.User.PhoneNoOfficial, "Phone No(Official)")
-
-                        @Html.TextBoxFor(model => Model.User.PhoneNoOfficial, new { @class = "form-control formm" })
-                        @Html.ValidationMessageFor(m => m.User.PhoneNoOfficial, "", new { @class = "text-danger" })
-
-                    </div>
-
+                    @Html.LabelFor(model => Model.User.DateofBirth, "Date of Birth")
+                    @Html.TextBoxFor(x => x.User.DateofBirth, new { @class = "form-control formm date", @Value = Model.User.DateofBirth.Value.ToShortDateString() })
+                    @Html.ValidationMessageFor(m => m.User.DateofBirth, "", new { @class = "text-danger" })
                 </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.User.DateofJoining, "Date of Joining")
 
-                <div class="form-row">
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.TextBoxFor(x => x.User.DateofJoining, new { @class = "form-control formm1 date", @Value = Model.User.DateofJoining.Value.ToShortDateString() })
+                    @Html.ValidationMessageFor(m => m.User.DateofJoining, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.User.PhoneNoOfficial, "Phone No(Official)")
 
-                        @Html.LabelFor(model => Model.User.PhoneNoPersonal, "Phone No(Personal)")
-
-                        @Html.TextBoxFor(model => Model.User.PhoneNoPersonal, new { @class = "form-control formm" })
-                        @Html.ValidationMessageFor(m => m.User.PhoneNoPersonal, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.User.EmailOfficial, "Email(Official)")
-
-                        @Html.TextBoxFor(model => Model.User.EmailOfficial, new { @class = "form-control formm" })
-                        @Html.ValidationMessageFor(m => m.User.EmailOfficial, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.User.EmailPersonal, "Email(Personal)")
-
-                        @Html.TextBoxFor(model => Model.User.EmailPersonal, new { @class = "form-control formm" })
-                        @Html.ValidationMessageFor(m => m.User.EmailPersonal, "", new { @class = "text-danger" })
-
-                    </div>
+                    @Html.TextBoxFor(model => Model.User.PhoneNoOfficial, new { @class = "form-control formm" })
+                    @Html.ValidationMessageFor(m => m.User.PhoneNoOfficial, "", new { @class = "text-danger" })
 
                 </div>
 
+            </div>
 
-                <div class="form-row">
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-row">
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
-                        @Html.LabelFor(model => Model.User.Role)
+                    @Html.LabelFor(model => Model.User.PhoneNoPersonal, "Phone No(Personal)")
 
-                        @Html.DropDownList("User.RoleId", new List<SelectListItem>
+                    @Html.TextBoxFor(model => Model.User.PhoneNoPersonal, new { @class = "form-control formm" })
+                    @Html.ValidationMessageFor(m => m.User.PhoneNoPersonal, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.User.EmailOfficial, "Email(Official)")
+
+                    @Html.TextBoxFor(model => Model.User.EmailOfficial, new { @class = "form-control formm" })
+                    @Html.ValidationMessageFor(m => m.User.EmailOfficial, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.User.EmailPersonal, "Email(Personal)")
+
+                    @Html.TextBoxFor(model => Model.User.EmailPersonal, new { @class = "form-control formm" })
+                    @Html.ValidationMessageFor(m => m.User.EmailPersonal, "", new { @class = "text-danger" })
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+                    @Html.LabelFor(model => Model.User.Role)
+
+                    @Html.DropDownList("User.RoleId", new List<SelectListItem>
                         {
                             new SelectListItem {Text = "Admin", Value = "1"},
                             new SelectListItem {Text = "Emloyee", Value = "2"}
                         }, "Select", new { @class = "form-control dropdown formm1" })
-                        @Html.ValidationMessageFor(m => m.User.RoleId, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.User.UniqueEmpCode, "Unique Employee Code")
+                    @Html.ValidationMessageFor(m => m.User.RoleId, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.User.UniqueEmpCode, "Unique Employee Code")
 
-                        @Html.TextBoxFor(model => Model.User.UniqueEmpCode, new { @class = "form-control formm1" })
-                        @Html.ValidationMessageFor(m => m.User.UniqueEmpCode, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.TextBoxFor(model => Model.User.UniqueEmpCode, new { @class = "form-control formm1" })
+                    @Html.ValidationMessageFor(m => m.User.UniqueEmpCode, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
 
-                        @Html.LabelFor(model => Model.User.Status)
+                    @Html.LabelFor(model => Model.User.Status)
 
-                        @Html.DropDownList("User.Status", new List<SelectListItem>
+                    @Html.DropDownList("User.Status", new List<SelectListItem>
                         {
                             new SelectListItem {Text = "Active", Value = "1"},
                             new SelectListItem {Text = "Inactive", Value = "0"},
                             new SelectListItem {Text = "Requested", Value = "2"}
                         }, "-Select-", new { @class = "form-control dropdown formm1", id = "status" })
-                        @Html.ValidationMessageFor(m => m.User.Status, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(m => m.User.Status, "", new { @class = "text-danger" })
 
-                    </div>
-
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-                        @Html.LabelFor(model => Model.User.Qualification)
-
-                        @Html.TextBoxFor(model => Model.User.Qualification, new { @class = "form-control formm1" })
-                        @Html.ValidationMessageFor(m => m.User.Qualification, "", new { @class = "text-danger" })
-
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-                        @Html.LabelFor(model => Model.User.PanNumber)
-
-                        @Html.TextBoxFor(model => Model.User.PanNumber, new { @class = "form-control formm" })
-                        @Html.ValidationMessageFor(m => m.User.PanNumber, "", new { @class = "text-danger" })
-
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Pan">Link Pan</button>
-
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.User.AadharNumber)
-
-                        @Html.TextBoxFor(model => Model.User.AadharNumber, new { @class = "form-control formm" })
-                        @Html.ValidationMessageFor(m => m.User.AadharNumber, "", new { @class = "text-danger" })
-
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Aadhar">Link Aadhar</button>
-
-                    </div>
-
-                </div>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <label>Document Name : -</label>
-                                <label id="docname"></label>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </div>
+
+            <div class="form-row">
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+                    @Html.LabelFor(model => Model.User.Qualification)
+
+                    @Html.TextBoxFor(model => Model.User.Qualification, new { @class = "form-control formm1" })
+                    @Html.ValidationMessageFor(m => m.User.Qualification, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+                    @Html.LabelFor(model => Model.User.PanNumber)
+
+                    @Html.TextBoxFor(model => Model.User.PanNumber, new { @class = "form-control formm" })
+                    @Html.ValidationMessageFor(m => m.User.PanNumber, "", new { @class = "text-danger" })
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Pan">Link Pan</button>
+
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.User.AadharNumber)
+
+                    @Html.TextBoxFor(model => Model.User.AadharNumber, new { @class = "form-control formm" })
+                    @Html.ValidationMessageFor(m => m.User.AadharNumber, "", new { @class = "text-danger" })
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Aadhar">Link Aadhar</button>
+
+                </div>
+
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <label>Document Name : -</label>
+                            <label id="docname"></label>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         }
     </div>
 
@@ -226,90 +226,90 @@
     <div class="tab-pane fade" id="bank" role="tabpanel" aria-labelledby="profile-tab">
         @using (Html.BeginForm("UpdateBank", "Employee", new { id = Model.User.Id }))
         {
-            <div class="d-flex flex-row-reverse">
+        <div class="d-flex flex-row-reverse">
 
-                <input type="submit" style="height: 44px; margin: 10px; margin-left: 0 !important" class="btn btn-primary p-2" name="Save" value="Save" />
+            <input type="submit" style="height: 44px; margin: 10px; margin-left: 0 !important" class="btn btn-primary p-2" name="Save" value="Save" />
 
-                <button type="button" style="margin: 10px;" id="edit1" name="Edit" class="btn btn-primary edit p-2">
-                    <i class="material-icons edit">mode_edit</i>Edit
-                </button>
+            <button type="button" style="margin: 10px;" id="edit1" name="Edit" class="btn btn-primary edit p-2">
+                <i class="material-icons edit">mode_edit</i>Edit
+            </button>
 
 
+
+        </div>
+
+            <!--Bank Details Start here-->
+        <div class="container">
+
+            <div class="form-row">
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.BankInfo.BankName, "Bank Name", new { @class = "label" })
+
+                    @Html.TextBoxFor(model => Model.BankInfo.BankName, new { @class = "form-control bank" })
+                    @Html.ValidationMessageFor(m => m.BankInfo.BankName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.BankInfo.IfscCode, "IFSC Code")
+
+                    @Html.TextBoxFor(model => Model.BankInfo.IfscCode, new { @class = "form-control bank" })
+                    @Html.ValidationMessageFor(m => m.BankInfo.IfscCode, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+                    @Html.LabelFor(model => Model.BankInfo.AccountNo, "Account No")
+                    @Html.TextBoxFor(x => x.BankInfo.AccountNo, new { @class = "form-control bank" })
+                    @Html.ValidationMessageFor(m => m.BankInfo.AccountNo, "", new { @class = "text-danger" })
+                </div>
 
             </div>
 
-            <!--Bank Details Start here-->
-            <div class="container">
+            <div class="form-row">
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(m => m.BankInfo.AccountType, "Account Type")
 
-                <div class="form-row">
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.BankInfo.BankName, "Bank Name", new { @class = "label" })
-
-                        @Html.TextBoxFor(model => Model.BankInfo.BankName, new { @class = "form-control bank" })
-                        @Html.ValidationMessageFor(m => m.BankInfo.BankName, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.BankInfo.IfscCode, "IFSC Code")
-
-                        @Html.TextBoxFor(model => Model.BankInfo.IfscCode, new { @class = "form-control bank" })
-                        @Html.ValidationMessageFor(m => m.BankInfo.IfscCode, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-                        @Html.LabelFor(model => Model.BankInfo.AccountNo, "Account No")
-                        @Html.TextBoxFor(x => x.BankInfo.AccountNo, new { @class = "form-control bank" })
-                        @Html.ValidationMessageFor(m => m.BankInfo.AccountNo, "", new { @class = "text-danger" })
-                    </div>
-
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(m => m.BankInfo.AccountType, "Account Type")
-
-                        @Html.DropDownList("BankInfo.AccountType", new List<SelectListItem>
+                    @Html.DropDownList("BankInfo.AccountType", new List<SelectListItem>
                         {
                             new SelectListItem {Text = "Savings", Value = "Savings"},
                             new SelectListItem {Text = "Current", Value = "Current"}
                         }, "Select Account", new { @class = "form-control dropdown bank" })
-                        @Html.ValidationMessageFor(m => m.BankInfo.AccountType, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.BankInfo.City)
+                    @Html.ValidationMessageFor(m => m.BankInfo.AccountType, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.BankInfo.City)
 
-                        @Html.TextBoxFor(x => x.BankInfo.City, new { @class = "form-control bank", id = "city" })
-                        @Html.ValidationMessageFor(m => m.BankInfo.City, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.BankInfo.State)
+                    @Html.TextBoxFor(x => x.BankInfo.City, new { @class = "form-control bank", id = "city" })
+                    @Html.ValidationMessageFor(m => m.BankInfo.City, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.BankInfo.State)
 
-                        @Html.TextBoxFor(model => Model.BankInfo.State, new { @class = "form-control bank", id = "state" })
-                        @Html.ValidationMessageFor(m => m.BankInfo.State, "", new { @class = "text-danger" })
-
-                    </div>
+                    @Html.TextBoxFor(model => Model.BankInfo.State, new { @class = "form-control bank", id = "state" })
+                    @Html.ValidationMessageFor(m => m.BankInfo.State, "", new { @class = "text-danger" })
 
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-
-                        @Html.LabelFor(model => Model.BankInfo.PinCode)
-
-                        @Html.TextBoxFor(model => Model.BankInfo.PinCode, new { @class = "form-control bank" })
-                        @Html.ValidationMessageFor(m => m.BankInfo.PinCode, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                        @Html.LabelFor(model => Model.BankInfo.UPICode)
-
-                        @Html.TextBoxFor(model => Model.BankInfo.UPICode, new { @class = "form-control bank", id = "upi" })
-                        @Html.ValidationMessageFor(m => m.BankInfo.UPICode, "", new { @class = "text-danger" })
-                    </div>
-                    <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12 img">
-
-                    </div>
-
-                </div>
             </div>
+
+            <div class="form-row">
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+
+                    @Html.LabelFor(model => Model.BankInfo.PinCode)
+
+                    @Html.TextBoxFor(model => Model.BankInfo.PinCode, new { @class = "form-control bank" })
+                    @Html.ValidationMessageFor(m => m.BankInfo.PinCode, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    @Html.LabelFor(model => Model.BankInfo.UPICode)
+
+                    @Html.TextBoxFor(model => Model.BankInfo.UPICode, new { @class = "form-control bank", id = "upi" })
+                    @Html.ValidationMessageFor(m => m.BankInfo.UPICode, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12 img">
+
+                </div>
+
+            </div>
+        </div>
         }
     </div>
 
@@ -317,94 +317,95 @@
         <hr />
 
     </div>
+</div>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
+<script type="text/javascript">
+    $(document).ready(function () {
 
-            var str = $('#upi').val();
-            $('.img').qrcode(str);
+        var str = $('#upi').val();
+        $('.img').qrcode(str);
 
-            $('#city').focusout(function () {
-                var city = $('#city').val();
-                if (city == "Mumbai") {
-                    $('#state').val("Maharashtra");
-                }
-            });
+        $('#city').focusout(function () {
+            var city = $('#city').val();
+            if (city == "Mumbai") {
+                $('#state').val("Maharashtra");
+            }
+        });
 
-            $('#upi').on('input', function () {
-                $('.img').html("");
-                var str1 = $('#upi').val();
-                $('.img').qrcode(str1);
-
-
-            });
-
-
-
-            $(function () {
-                $('input:text.date').datepicker({ dateFormat: "dd/MMM/yyyy" });
-            });
-
-            $('.formm,.formm1').attr('disabled', 'disabled'); // disabled the textboxes
-            $('.bank').attr('disabled', 'disabled');
-
-            $('#edit').click(function () {
-                var role = '@Session["Role"]';
-                if (role == "Employee") {
-                    var attr = $('.formm').attr('disabled');
-                    if (attr == 'disabled') { // Enabled the textboxes
-                        $('.formm').removeAttr('disabled');
-                    } else {
-                        $('.formm').attr('disabled', 'disabled');
-                    }
-                } else {
-                    var attr = $('.formm,.formm1').attr('disabled');
-                    if (attr == 'disabled') { // Enabled the textboxes
-                        $('.formm,.formm1').removeAttr('disabled');
-                    } else {
-                        $('.formm,.formm1').attr('disabled', 'disabled');
-                    }
-
-                }
-
-            });
-
-            $('#edit1').click(function () {
-                var attr = $('.bank').attr('disabled');
-                if (attr == 'disabled') {
-                    $('.bank').removeAttr('disabled');
-                } else {
-                    $('.bank').attr('disabled', 'disabled');
-                }
-            });
-
-            $('#exampleModal').on('show.bs.modal',
-                function (event) {
-                    var button = $(event.relatedTarget) // Button that triggered the modal
-                    var recipient = button.data('whatever') // Extract info from data-* attributes
-                    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-                    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-                    var modal = $(this)
-                    modal.find('.modal-title').text('Update your ' + recipient + ' info')
-                    modal.find('#docname').text(recipient)
-                    modal.find('.modal-body input').val(recipient)
-                });
-
+        $('#upi').on('input', function () {
+            $('.img').html("");
+            var str1 = $('#upi').val();
+            $('.img').qrcode(str1);
 
 
         });
 
 
-    </script>
 
-    <p>
-        @if (Session["Role"] as string == "Admin")
-        {
-            @Html.ActionLink("Back to List", "ViewList", "Employee")
-        }
-        else
-        {
-            @Html.ActionLink("Back to Home", "Dashboard", "Home")
-        }
+        $(function () {
+            $('input:text.date').datepicker({ dateFormat: "dd/MMM/yyyy" });
+        });
 
-    </p>
+        $('.formm,.formm1').attr('disabled', 'disabled'); // disabled the textboxes
+        $('.bank').attr('disabled', 'disabled');
+
+        $('#edit').click(function () {
+            var role = '@Session["Role"]';
+            if (role == "Employee") {
+                var attr = $('.formm').attr('disabled');
+                if (attr == 'disabled') { // Enabled the textboxes
+                    $('.formm').removeAttr('disabled');
+                } else {
+                    $('.formm').attr('disabled', 'disabled');
+                }
+            } else {
+                var attr = $('.formm,.formm1').attr('disabled');
+                if (attr == 'disabled') { // Enabled the textboxes
+                    $('.formm,.formm1').removeAttr('disabled');
+                } else {
+                    $('.formm,.formm1').attr('disabled', 'disabled');
+                }
+
+            }
+
+        });
+
+        $('#edit1').click(function () {
+            var attr = $('.bank').attr('disabled');
+            if (attr == 'disabled') {
+                $('.bank').removeAttr('disabled');
+            } else {
+                $('.bank').attr('disabled', 'disabled');
+            }
+        });
+
+        $('#exampleModal').on('show.bs.modal',
+            function (event) {
+                var button = $(event.relatedTarget) // Button that triggered the modal
+                var recipient = button.data('whatever') // Extract info from data-* attributes
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var modal = $(this)
+                modal.find('.modal-title').text('Update your ' + recipient + ' info')
+                modal.find('#docname').text(recipient)
+                modal.find('.modal-body input').val(recipient)
+            });
+
+
+
+    });
+
+
+</script>
+
+<p>
+    @if (Session["Role"] as string == "Admin")
+    {
+        @Html.ActionLink("Back to List", "ViewList", "Employee")
+    }
+    else
+    {
+        @Html.ActionLink("Back to Home", "Dashboard", "Home")
+    }
+
+</p>
