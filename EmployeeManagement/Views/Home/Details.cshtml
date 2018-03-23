@@ -1,0 +1,90 @@
+﻿@model Helper.Employee
+
+@{
+    ViewBag.Title = "Employee Details";
+}
+
+<div>
+    <h2>Employee Details</h2>
+
+    <table>
+        <tr>
+            <td>
+                <b>Employee Id :</b>
+            </td>
+            <td>
+                @Model.EmployeeId
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Employee Name :</b>
+            </td>
+            <td>
+                @Model.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Employee Address :</b>
+            </td>
+            <td>
+                @Model.Address
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Employee Qualification :</b>
+            </td>
+            <td>
+                @Model.Qualification
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Employee DateofBirth :</b>
+            </td>
+            <td>
+                @Model.DateofBirth
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Employee PanNumber :</b>
+            </td>
+            <td>
+                @Model.PanNumber
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Employee AadharNo :</b>
+            </td>
+            <td>
+                @Model.AadharNo
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Employee Gender :</b>
+            </td>
+            <td>
+                @Model.Gender
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Employee City :</b>
+            </td>
+            <td>
+                @Model.City
+            </td>
+        </tr>
+    </table>
+    <div >
+        <p style="margin: 10px;font-size: 15px">@Html.ActionLink("Back to list","Index")</p>
+        <a href=@Url.Action("Index","Bank",new {id = Model.EmployeeId},null)><button type="button">Bank Details</button></a>
+    </div>
+</div>
+
+

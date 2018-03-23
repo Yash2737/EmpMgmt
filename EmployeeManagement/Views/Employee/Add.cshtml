@@ -1,0 +1,178 @@
+﻿@model Helper.User
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h1>Add new Employee</h1>
+<div class="container">
+
+    @using (Html.BeginForm("Add", "Employee"))
+    {
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.HiddenFor(m => m.Id, new { id = "id" })
+                @Html.LabelFor(m => m.FirstName)
+                @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control", id = "firstname", placeholder = "First name" } })
+                @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.LastName)
+                @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control", id = "lastname", placeholder = "Last name" } })
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.EmailPersonal, "Email Id")
+                @Html.EditorFor(m => m.EmailPersonal, new { htmlAttributes = new { @class = "form-control", id = "email", placeholder = "Email Id (Personal)" } })
+                @Html.ValidationMessageFor(m => m.EmailPersonal, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.DateofBirth, "Date of Birth")
+                @Html.EditorFor(m => m.DateofBirth, new { htmlAttributes = new { @class = "form-control", id = "dob", placeholder = "Date of Birth", type = "date" } })
+                @Html.ValidationMessageFor(m => m.DateofBirth, "", new { @class = "text-danger" })
+
+
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.DateofJoining, "Date of Joining")
+                @Html.EditorFor(m => m.DateofJoining, new { htmlAttributes = new { @class = "form-control", id = "doj", placeholder = "Date of Joining", type = "date" } })
+                @Html.ValidationMessageFor(m => m.DateofJoining, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.Gender)
+
+                @Html.DropDownList("Gender", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Male", Value = "Male"},
+                    new SelectListItem {Text = "Female", Value = "Female"}
+                }, "Select Gender", new { @class = "form-control dropdown", id = "gender" })
+                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.Status, "Activity Status")
+
+                @Html.DropDownList("Status", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Active", Value = "1"},
+                    new SelectListItem {Text = "Inactive", Value = "0"}, new SelectListItem {Text = "Requested", Value = "2"}
+                }, "-Select-", new { @class = "form-control dropdown", id = "status" })
+                @Html.ValidationMessageFor(m => m.Status, "", new { @class = "text-danger" })
+
+            </div>
+            <div class="form-group col-md-6">
+                @Html.LabelFor(m => m.RoleId, "Role")
+
+                @Html.DropDownList("RoleId", new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "Admin", Value = "1"},
+                    new SelectListItem {Text = "Emloyee", Value = "2"}
+                }, "Select Role", new { @class = "form-control dropdown", id = "role" })
+                @Html.ValidationMessageFor(m => m.RoleId, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <button class="btn btn-primary" href="@Url.Action("Dashboard", "Home")">Back</button>
+
+
+        <input style="float: right" type="submit" data-toggle="modal" id="launch" data-target="#exampleModalCenter" value="Add" class="btn btn-primary launch">
+        <button style="float: right; margin-right: 5px" type="reset" class="btn btn-primary">Reset</button>
+
+    }
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="name" id="name"></h3>
+                    @Html.LabelFor(x => x.EmailPersonal, "Username : -")
+                    <label class="email" id="emailp"></label>
+
+                    <br />
+                    @Html.LabelFor(x => x.EmailPersonal, "Password : -")
+                    <label class="pass" id="passp"></label>
+                </div>
+                <div class="modal-footer">
+                    @*<button type="button" class="btn btn-secondary" data-dismiss="modal">*@
+                    @Html.ActionLink("Close", "ViewList", "Employee", new { @class = "btn btn-secondary", @type = "button", @data_dismiss = "modal" }, null)
+
+                    <button type="button" class="btn btn-primary">Copy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.launch').click(function () {
+
+            var user = new Object();
+            user.Id = $('#id').val();
+            user.FirstName = $('#firstname').val();
+            user.LastName = $('#lastname').val();
+            user.Gender = $('#gender').val();
+            user.DateofBirth = $('#dob').val();
+            user.DateofJoining = $('#doj').val();
+            user.RoleId = $('#role').val();
+            user.EmailPersonal = $('#email').val();
+            user.Status = $('#status').val();
+            user.UniqueEmpCode = $('#firstname').val();
+            if (user != null) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Employee/Add",
+                    data: JSON.stringify(user),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response != null) {
+                            $('#name').html(user.FirstName + ' Added Successfully');
+                            $('#emailp').html(user.EmailPersonal);
+                            $('#passp').html(response.Password);
+
+
+                        }
+                        else {
+                            alert("Something went wrong");
+                        }
+                    },
+                    failure: function (response) {
+                        $('.modal-body').html("Faliure");
+                    },
+                    error: function (response) {
+                        $('.modal-body').html("Faliure");
+                    }
+
+
+                });
+            }
+
+
+        });
+    });
+
+
+
+</script>

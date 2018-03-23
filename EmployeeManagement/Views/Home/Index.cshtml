@@ -1,0 +1,52 @@
+﻿@using Helper
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div>
+    @*<ul>
+        @foreach (var emp in @Model)
+        {
+            <li>
+                @Html.ActionLink(emp.Name, "Details", new { id = emp.EmployeeId })
+            </li>
+        }
+    </ul>*@
+    
+    <ul>
+        @foreach (Employee emp in ViewBag.Employees)
+        {
+            <li>@Html.ActionLink(emp.Name,"Details",new {id = emp.EmployeeId})</li>
+        }
+    </ul>
+    
+    @*<table border="1">
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.EmployeeId)</th>
+            <th>@Html.DisplayNameFor(m => m.Name)</th>
+            <th>@Html.DisplayNameFor(m => m.Gender)</th>
+            <th>@Html.DisplayNameFor(m => m.City)</th>
+            <th>Action</th>
+        </tr>
+        @foreach (Employee emp in @Model)
+        {
+            <tr>
+           
+                <td>@Html.DisplayFor(x => emp.EmployeeId)</td>
+                <td>@Html.DisplayFor(x => emp.Name)</td>
+                <td>@Html.DisplayFor(x => emp.Gender)</td>
+                <td>@Html.DisplayFor(x => emp.City)</td>
+            
+                <td>
+                    @Html.ActionLink("edit", "Edit", new { id = emp.EmployeeId}) |
+                    @Html.ActionLink("details", "Details", new { id = emp.EmployeeId}) |
+                    @Html.ActionLink("delete", "Delete", new { id = emp.EmployeeId})
+                </td>
+            
+            </tr>
+        }
+    </table>*@
+</div>

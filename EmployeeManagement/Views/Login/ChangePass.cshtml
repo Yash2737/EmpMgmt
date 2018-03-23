@@ -1,0 +1,59 @@
+﻿@model Helper.Password
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Change Password - @Session["FirstName"]</title>
+    <style>
+        .offset-md-3 {
+            margin-top: 50px;
+        }
+
+        form {
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+
+    <div class="container">
+        <div class="row">
+            <div class="card card-login mx-auto mt-5">
+                <div class="card-header">Change Password</div>
+                <div class="card-body">
+                @using (@Html.BeginForm("ChangePass", "Login", new {id = (int) Session["Id"]}))
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.OldPass, "Old Password")
+                        @Html.PasswordFor(x => x.OldPass, new {@class = "form-control", placeholder = "Enter Old Password"})
+                        @Html.ValidationMessageFor(x=>x.OldPass, "", new { @class = "text-danger"})
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your data with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(x => x.NewPass, "New Password")
+                        @Html.PasswordFor(x => x.NewPass, new {@class = "form-control", placeholder = "New Password"})
+                        @Html.ValidationMessageFor(x => x.NewPass, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="text-center">
+                        <input class="btn btn-primary btn-block" type="submit" value="Change Password">
+                        <a class="d-block small" href="@Url.Action("Dashboard", "Home")">Back</a>
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

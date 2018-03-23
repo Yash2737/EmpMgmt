@@ -1,0 +1,60 @@
+﻿@model EmployeeManagement.Models.BankInfo
+
+@{
+    ViewBag.Title = "Bank Details";
+}
+
+<h2>Bank Details</h2>
+<div>
+    <table>
+        <tr>
+            <td>
+                Full name
+            </td>
+        <tr>
+            <td>
+                Account No
+            </td>
+            <td>
+                @Model.AccountNo
+            </td>
+        </tr>
+        <tr>
+            <td>
+                IFSC Code
+            </td>
+            <td>
+                @Model.IfscCode
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Account Type
+            </td>
+            <td>
+                @Model.AccountType
+            </td>
+        </tr>
+        <tr>
+            <td>
+                City
+            </td>
+            <td>
+                @Model.City
+            </td>
+        </tr>
+        <tr>
+        <tr>
+            <td>
+                State
+            </td>
+            <td>
+                @Model.State
+            </td>
+        </tr>
+
+    </table>
+    @Html.ActionLink("Back to info","Details","Home",new {id = Model.UserId},null)
+
+</div>
+

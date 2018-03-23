@@ -1,0 +1,16 @@
+﻿@model DateTime? 
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DateTime</title>
+</head>
+<body>
+  @Html.TextBox("",Model.HasValue ? Model.Value.ToString("dd/MMM/yyyy") : "None" ,new {@class = "date"});
+</body>
+</html>

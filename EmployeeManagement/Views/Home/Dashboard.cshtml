@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="container-fluid maindiv">
+    @if (Session["Role"] as string == "Admin")
+    {
+        <h2>This is the admin panel</h2>
+    }
+    @if (Session["Role"] as string == "Employee")
+    {
+        <h2>This is the Employee panel</h2>
+    }
+
+    <i class="material-icons">face</i>
+
+</div>
+

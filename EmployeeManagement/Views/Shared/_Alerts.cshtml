@@ -1,0 +1,43 @@
+﻿@using EmployeeManagement.Models
+
+@{
+    var alerts = TempData.ContainsKey(Alerts.TempDataKey)
+        ? (List<Alerts>)TempData[Alerts.TempDataKey]
+        : new List<Alerts>();
+}
+
+<style>
+    .alert {
+        width: 100%;
+        margin-top: 10px;
+    }
+</style>
+
+@if (alerts.Any())
+{
+    foreach (var alert in alerts)
+    {
+        var dismissableClass = alert.Dismissable ? "alert-dismissable" : null;
+
+        <div class="alert alert-@alert.AlertStyle @dismissableClass" role="alert" id="alert">
+            @alert.Message
+            @if (alert.Dismissable)
+            {
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            }
+
+        </div>
+
+    }
+
+
+}
+<script type="text/javascript">
+    $("#alert").fadeTo(2000, 500).slideUp(500, function () {
+        $("#alert").slideUp(500);
+    });
+</script>
+
+
