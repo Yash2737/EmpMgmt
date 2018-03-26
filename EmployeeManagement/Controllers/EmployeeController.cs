@@ -57,7 +57,7 @@ namespace EmployeeManagement.Controllers
                 _bal.SendEmail(user);
                 Success("User " + user.FirstName + "created successfully Please check your mail", true);
 
-                                //return RedirectToAction("ViewList");
+                //return RedirectToAction("ViewList");
                 return Json(user, JsonRequestBehavior.AllowGet);
             }
             else
